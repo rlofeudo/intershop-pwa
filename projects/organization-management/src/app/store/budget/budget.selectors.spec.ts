@@ -8,7 +8,7 @@ import { StoreWithSnapshots, provideStoreSnapshots } from 'ish-core/utils/dev/ng
 import { OrganizationManagementStoreModule } from '../organization-management-store.module';
 
 import { loadBudget, loadBudgetFail, loadBudgetSuccess } from './budget.actions';
-import { getCurrentUserBudget, getCurrentUserBudgetLoading } from './budget.selectors';
+import { getCurrentUserBudget, getCurrentUserBudgetError, getCurrentUserBudgetLoading } from './budget.selectors';
 
 const budget = {
   orderSpentLimit: {
@@ -75,7 +75,8 @@ describe('Budget Selectors', () => {
       store$.dispatch(loadBudget());
       store$.dispatch(loadBudgetFail({ error: makeHttpError({ message: 'error' }) }));
     });
-    it('should set loading correctly on loadBudgetFail', () => {
+    it('should set loading and error correctly on loadBudgetFail', () => {
+      expect(getCurrentUserBudgetError(store$.state)).toBeTruthy();
       expect(getCurrentUserBudgetLoading(store$.state)).toBeFalse();
     });
   });
