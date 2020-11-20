@@ -1,1 +1,24 @@
-<ish-content-include includeId="include.homepage.content.pagelet2-Include"></ish-content-include>
+<!-- <ng-template ishProductContext let-p="product" sku="201807204-01">
+  <div class="product-list">
+    <ish-product-item></ish-product-item>
+  </div>
+
+  <pre class="border">{{ p?.sku | json }}</pre>
+</ng-template> -->
+
+<ng-container *ishProductContext="'201807204-01'; product as p; quantity: inter$ | async; quantity as q">
+  <div class="product-list">
+    <ish-product-item [configuration]="{ displayType: 'row' }"></ish-product-item>
+  </div>
+
+  <pre class="border">{{ p?.sku | json }}</pre>
+  <pre class="border">{{ q | json }}</pre>
+</ng-container>
+
+<pre>{{ inter$ | async | json }}</pre>
+
+<ng-container ishProductContext sku="201807204-01" [quantity]="inter$ | async">
+  <ish-product-item [configuration]="{ displayType: 'row' }"></ish-product-item>
+</ng-container>
+
+<!-- <ish-content-include includeId="include.homepage.content.pagelet2-Include"></ish-content-include> -->

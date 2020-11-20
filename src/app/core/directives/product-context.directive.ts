@@ -1,15 +1,37 @@
-import { Directive, Input, OnChanges, OnInit, Optional, Output, SimpleChanges, SkipSelf } from '@angular/core';
+import {
+  Directive,
+  DoCheck,
+  Input,
+  OnChanges,
+  OnInit,
+  Optional,
+  Output,
+  SimpleChanges,
+  SkipSelf,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 
 import { ProductContextFacade } from 'ish-core/facades/product-context.facade';
-import { ProductCompletenessLevel } from 'ish-core/models/product/product.model';
+import { AnyProductViewType, ProductCompletenessLevel } from 'ish-core/models/product/product.model';
+
+export class IshProductContextContext {
+  constructor(public context: ProductContextFacade) {}
+
+  get product(): AnyProductViewType {
+    return this.context.get('product');
+  }
+
+  get quantity(): number {
+    return this.context.get('quantity');
+  }
+}
 
 @Directive({
   selector: '[ishProductContext]',
   providers: [ProductContextFacade],
 })
-export class ProductContextDirective implements OnInit, OnChanges {
-  @Input() sku: string;
-  @Input() quantity: number;
+export class ProductContextDirective implements OnInit, OnChanges, DoCheck {
   @Input() completeness: 'List' | 'Detail' = 'List';
   @Input() propagateIndex: number;
   @Input() propagateActive = true;
@@ -19,9 +41,31 @@ export class ProductContextDirective implements OnInit, OnChanges {
 
   constructor(
     @SkipSelf() @Optional() private parentContext: ProductContextFacade,
-    private context: ProductContextFacade
+    private context: ProductContextFacade,
+    private viewContainer: ViewContainerRef,
+    @Optional() private template: TemplateRef<IshProductContextContext>
   ) {
     this.context.hold(this.context.$, () => this.propagate());
+  }
+
+  @Input()
+  set ishProductContext(sku: string) {
+    this.context.set('sku', () => sku);
+  }
+
+  @Input()
+  set sku(sku: string) {
+    this.context.set('sku', () => sku);
+  }
+
+  @Input()
+  set ishProductContextQuantity(quantity: number) {
+    this.context.set('quantity', () => quantity);
+  }
+
+  @Input()
+  set quantity(quantity: number) {
+    this.context.set('quantity', () => quantity);
   }
 
   private propagate() {
@@ -34,19 +78,25 @@ export class ProductContextDirective implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     if (changes?.propagateActive) {
       this.propagate();
     }
   }
 
-  ngOnInit() {
-    if (this.quantity !== undefined) {
-      this.context.set('quantity', () => this.quantity);
+  ngDoCheck() {
+    if (this.template) {
+      this.viewContainer.get(0).markForCheck();
     }
+  }
+
+  ngOnInit() {
+    if (this.template) {
+      this.viewContainer.clear();
+      this.viewContainer.createEmbeddedView(this.template, new IshProductContextContext(this.context));
+    }
+
     this.context.set('requiredCompletenessLevel', () =>
       this.completeness === 'List' ? ProductCompletenessLevel.List : ProductCompletenessLevel.Detail
     );
-    this.context.set('sku', () => this.sku);
   }
 }
