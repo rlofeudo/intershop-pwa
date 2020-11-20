@@ -5,7 +5,8 @@
     <ng-container *ngFor="let part of product.bundledProducts">
       <div class="col-lg-8 product-list-item list-view">
         <ish-product-item
-          [productSku]="part.sku"
+          ishProductContext
+          [sku]="part.sku"
           [quantity]="part.quantity"
           [configuration]="{
             readOnly: true,
@@ -26,10 +27,7 @@
   </div>
   <div class="row product-info">
     <div class="col align-self-start no-gutters">
-      <ish-product-add-to-basket
-        [product]="product"
-        (productToBasket)="productToBasket.emit()"
-      ></ish-product-add-to-basket>
+      <ish-product-add-to-basket></ish-product-add-to-basket>
     </div>
   </div>
 </div>
