@@ -128,7 +128,7 @@ describe('Price Helper', () => {
   });
 
   describe('empty', () => {
-    it('should return an empty price with the right currency', () => {
+    it('should always return an empty price with the right currency', () => {
       const emptyPrice = PriceHelper.empty('USD');
       expect(emptyPrice.currency).toEqual('USD');
       expect(emptyPrice.value).toEqual(0);
