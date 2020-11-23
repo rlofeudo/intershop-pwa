@@ -32,7 +32,7 @@ import {
   updateUserPasswordSuccess,
   updateUserSuccess,
   userErrorReset,
-} from './user.actions';
+} from './actions';
 import { initialState, userReducer } from './user.reducer';
 
 describe('User Reducer', () => {

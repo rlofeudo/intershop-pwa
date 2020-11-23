@@ -80,6 +80,7 @@ import { OrderListComponent } from './components/order/order-list/order-list.com
 import { OrderWidgetComponent } from './components/order/order-widget/order-widget.component';
 import { ProductAddToBasketComponent } from './components/product/product-add-to-basket/product-add-to-basket.component';
 import { ProductAddToCompareComponent } from './components/product/product-add-to-compare/product-add-to-compare.component';
+import { ProductAttributesTableComponent } from './components/product/product-attributes-table/product-attributes-table.component';
 import { ProductAttributesComponent } from './components/product/product-attributes/product-attributes.component';
 import { ProductBundleDisplayComponent } from './components/product/product-bundle-display/product-bundle-display.component';
 import { ProductIdComponent } from './components/product/product-id/product-id.component';
@@ -200,6 +201,7 @@ const exportedComponents = [
   ProductAddToBasketComponent,
   ProductAddToCompareComponent,
   ProductAttributesComponent,
+  ProductAttributesTableComponent,
   ProductBundleDisplayComponent,
   ProductIdComponent,
   ProductInventoryComponent,

@@ -39,7 +39,7 @@ import {
   updateUserPasswordSuccess,
   updateUserSuccess,
   userErrorReset,
-} from './user.actions';
+} from './actions';
 
 export interface UserState {
   customer: Customer;

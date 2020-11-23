@@ -1,0 +1,19 @@
+.main-navigation {
+  .main-navigation-list {
+    > li {
+      ul {
+        > li {
+          li {
+            a {
+              color: lighten($text-color-primary, 25%);
+            }
+          }
+        }
+      }
+    }
+
+    .category-level1 {
+      border-top: $border-width-default solid $border-color-light;
+    }
+  }
+}

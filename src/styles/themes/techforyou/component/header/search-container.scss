@@ -1,0 +1,9 @@
+/*********** SEARCH CONTAINER **********/
+.header-search-container {
+  input {
+    &.form-control {
+      background: lighten($CORPORATE-PRIMARY, 55%);
+      border: 1px solid $border-color-light;
+    }
+  }
+}

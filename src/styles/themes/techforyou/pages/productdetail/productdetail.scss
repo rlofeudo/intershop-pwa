@@ -1,0 +1,38 @@
+//
+// PRODUCT DETAILS
+
+.product-details {
+  .product-attributes-table {
+    margin: 5px;
+
+    &-title {
+      padding-bottom: 7px;
+      font-family: $font-family-condensedbold;
+      font-size: large;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    &-row {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid $border-color-lighter;
+      &:first-child {
+        border-top: 1px solid $border-color-lighter;
+      }
+    }
+
+    &-type {
+      width: 50%;
+      padding: 10px;
+      font-family: $font-family-condensedregular;
+      background-color: lighten($CORPORATE-PRIMARY, 55%);
+    }
+
+    &-value {
+      width: 50%;
+      padding: 10px;
+      font-family: $font-family-condensedregular;
+    }
+  }
+}

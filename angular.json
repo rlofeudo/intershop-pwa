@@ -38,6 +38,11 @@
                 "inject": false,
                 "input": "src/styles/themes/blue/style.scss",
                 "bundleName": "blue"
+              },
+              {
+                "inject": false,
+                "input": "src/styles/themes/techforyou/style.scss",
+                "bundleName": "techforyou"
               }
             ],
             "scripts": []

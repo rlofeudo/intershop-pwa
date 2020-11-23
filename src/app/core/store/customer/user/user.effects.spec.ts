@@ -50,7 +50,7 @@ import {
   updateUserPasswordFail,
   updateUserPasswordSuccess,
   updateUserSuccess,
-} from './user.actions';
+} from './actions';
 import { UserEffects } from './user.effects';
 
 describe('User Effects', () => {

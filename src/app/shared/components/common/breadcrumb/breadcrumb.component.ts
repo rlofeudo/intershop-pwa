@@ -17,7 +17,7 @@ import { BreadcrumbItem } from 'ish-core/models/breadcrumb-item/breadcrumb-item.
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbComponent implements OnInit {
-  @Input() separator = '/';
+  @Input() separator = '';
   @Input() showHome = true;
   @Input() account: boolean;
 

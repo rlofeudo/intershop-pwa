@@ -9,6 +9,7 @@ import { ProductView } from 'ish-core/models/product-view/product-view.model';
 import { AccordionItemComponent } from 'ish-shared/components/common/accordion-item/accordion-item.component';
 import { AccordionComponent } from 'ish-shared/components/common/accordion/accordion.component';
 import { ProductAddToBasketComponent } from 'ish-shared/components/product/product-add-to-basket/product-add-to-basket.component';
+import { ProductAttributesTableComponent } from 'ish-shared/components/product/product-attributes-table/product-attributes-table.component';
 import { ProductAttributesComponent } from 'ish-shared/components/product/product-attributes/product-attributes.component';
 import { ProductIdComponent } from 'ish-shared/components/product/product-id/product-id.component';
 import { ProductInventoryComponent } from 'ish-shared/components/product/product-inventory/product-inventory.component';
@@ -55,6 +56,7 @@ describe('Product Detail Component', () => {
         MockComponent(LazyTactonConfigureProductComponent),
         MockComponent(ProductAddToBasketComponent),
         MockComponent(ProductAttributesComponent),
+        MockComponent(ProductAttributesTableComponent),
         MockComponent(ProductDetailActionsComponent),
         MockComponent(ProductIdComponent),
         MockComponent(ProductImagesComponent),

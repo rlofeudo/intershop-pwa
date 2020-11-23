@@ -1,0 +1,14 @@
+<div @blind *ngIf="product.attributes && product.attributes.length">
+  <div class="product-attributes-table-title">{{ title }}</div>
+  <div class="product-attributes-table">
+    <ng-container *ngFor="let attribute of product.attributes | slice: 0:1000">
+      <div class="product-attributes-table-row">
+        <div class="product-attributes-table-type">{{ attribute.name }}:</div>
+        <div
+          class="product-attributes-table-value"
+          [innerHTML]="attribute | ishAttribute: multipleValuesSeparator"
+        ></div>
+      </div>
+    </ng-container>
+  </div>
+</div>

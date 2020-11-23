@@ -62,7 +62,7 @@ import {
   updateUserPasswordSuccess,
   updateUserSuccess,
   userErrorReset,
-} from './user.actions';
+} from './actions';
 import { getLoggedInCustomer, getLoggedInUser, getUserError } from './user.selectors';
 
 @Injectable()

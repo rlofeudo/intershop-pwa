@@ -23,7 +23,7 @@ import {
   requestPasswordReminderFail,
   requestPasswordReminderSuccess,
   updateUserPassword,
-} from './user.actions';
+} from './actions';
 import {
   getLoggedInCustomer,
   getLoggedInUser,

@@ -1,0 +1,5 @@
+.breadcrumbs {
+  .breadcrumb-list-separator::before {
+    content: '>';
+  }
+}
