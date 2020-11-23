@@ -184,7 +184,7 @@ export class UsersService {
       .pipe(
         map(budget => ({
           ...budget,
-          spentBudget: budget.spentBudget ?? PriceHelper.empty(),
+          spentBudget: budget.spentBudget ?? PriceHelper.empty(budget.budget.currency),
         }))
       );
   }
